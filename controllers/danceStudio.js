@@ -14,6 +14,13 @@ DanceStudioRouter.get('/', (req, res) => {
    })
 })
 
+DanceStudioRouter.get('/:danceStudioId', (req, res) =>{
+DanceStudioApi.getDanceStudio(req.params.danceStudioId)
+.then((danceStudio)=>{
+  
+})
+})
+
 
 
 
