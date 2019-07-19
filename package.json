@@ -1,0 +1,32 @@
+{
+  "name": "project-template",
+  "version": "1.0.0",
+  "description": "# Setup",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "concurrently": "^4.1.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.1"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
+    "start": "node server.js",
+    "postinstall": "cd client && npm i && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moxleydevelopment/project-3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/moxleydevelopment/project-3/issues"
+  },
+  "homepage": "https://github.com/moxleydevelopment/project-3#readme"
+}
