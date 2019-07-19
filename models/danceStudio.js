@@ -36,9 +36,16 @@ function updateDanceStudio(dsId, danceStudio){
     return DanceStudioCollection.findByIdAndUpdate(dsId, danceStudio)
 }
 
+function deleteDanceStudio(dsId){
+    return DanceStudioCollection.findByIdAndDelete(dsId)
+}
+
 
 module.exports = {
   getDanceStudios,
   getDanceStudio,
-  
+  createDanceStudio,
+  updateDanceStudio,
+  deleteDanceStudio
+
 }
