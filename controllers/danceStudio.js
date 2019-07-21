@@ -6,6 +6,13 @@ const DanceStudioApi = require('../models/danceStudio.js')
 
 const DanceStudioRouter = express.Router()
 
+DanceStudioRouter.get('/', (req, res) => {
+  DanceStudioApi.getDanceStudios()
+    .then((studios) => {
+      res.json(studios)
+    })
+})
+
 DanceStudioRouter.get('/:danceStudioId', (req, res) => {
   DanceStudioApi.getDanceStudio(req.params.danceStudioId)
     .then((danceStudio) => {
@@ -13,12 +20,7 @@ DanceStudioRouter.get('/:danceStudioId', (req, res) => {
     })
 })
 
-DanceStudioRouter.get('/', (req, res) => {
-  DanceStudioApi.getDanceStudios()
-    .then((studios) => {
-      res.json(studios)
-    })
-})
+
 
 
 DanceStudioRouter.post('/', (req, res)=>{
