@@ -20,6 +20,28 @@ class DanceStudio extends Component {
         this.getStudio()
     }
 
+    updateDanceStudio = () =>{
+        axios.put(`/api/dancestudio/${this.props.match.params.studioId}`, this.state.danceStudio )
+        .then(()=>{
+            this.getStudio()
+        })
+    }
+
+    handleInputChange = (event) => {
+        const copiedStudio = { ...this.state.danceStudio }
+        copiedStudio[event.target.name] = event.target.value
+        this.setState({ danceStudio: copiedStudio })
+
+
+    }
+    toggleForm = () => {
+        if (this.state.editForm) {
+            this.setState({ editForm: false })
+        } else {
+            this.setState({ editForm: true })
+        }
+    }
+
     render() {
 
 
@@ -27,17 +49,17 @@ class DanceStudio extends Component {
             <div>
                 {this.state.editForm ?
                     <div>
-                        <form>
+                        <form className='form' onSubmit={this.updateDanceStudio}>
                             <label htmlFor='name'>Studio Name:</label>
-                            <input type='text' name='name' onChange={this.handleInputChange}></input>
+                            <input type='text' name='name' onChange={this.handleInputChange} value={this.state.danceStudio.name}></input>
                             <label htmlFor='address'>Address:</label>
-                            <input type='text' name='address' onChange={this.handleInputChange}></input>
+                            <input type='text' name='address' onChange={this.handleInputChange} value={this.state.danceStudio.address}></input>
                             <label htmlFor='phoneNumber'>Phone Number:</label>
-                            <input type='number' name='phoneNumber' onChange={this.handleInputChange}></input>
+                            <input type='number' name='phoneNumber' onChange={this.handleInputChange} value={this.state.danceStudio.phoneNumber}></input>
                             <label htmlFor='hoursOfOperation'>Hours of Operation:</label>
-                            <input type='text' name='hoursOfOperation' onChange={this.handleInputChange}></input>
+                            <input type='text' name='hoursOfOperation' onChange={this.handleInputChange} value={this.state.danceStudio.hoursOfOperation}></input>
                             <label htmlFor='description'>Description:</label>
-                            <textarea name='description' onChange={this.handleInputChange}></textarea>
+                            <textarea name='description' onChange={this.handleInputChange} value={this.state.danceStudio.description}></textarea>
                             <input type='submit' value='Submit'></input>
 
                         </form>
@@ -48,6 +70,7 @@ class DanceStudio extends Component {
                         <p>{this.state.danceStudio.phoneNumber}</p>
                         <p>{this.state.danceStudio.hoursOfOperation}</p>
                         <p>{this.state.danceStudio.description}</p>
+                        <button onClick={this.toggleForm}>Update</button>
                     </div>
                 }
 

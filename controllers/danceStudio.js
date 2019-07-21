@@ -31,8 +31,6 @@ DanceStudioRouter.post('/', (req, res)=>{
 })
 
 DanceStudioRouter.put('/:danceStudioId', (req, res)=>{
-  console.log(req.body)
-  console.log(req.params.danceStudioId)
   DanceStudioApi.updateDanceStudio(req.params.danceStudioId, req.body)
   .then((danceStudio)=>{
     res.json(danceStudio)

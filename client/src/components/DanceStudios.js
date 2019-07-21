@@ -70,7 +70,7 @@ export default class DanceStudios extends Component {
                 {
                     this.state.createNewStudio ?
                         <div>
-                            <form className='create-form-studio' onSubmit={this.createStudio}>
+                            <form className='form' onSubmit={this.createStudio}>
                                 <label htmlFor='name'>Studio Name:</label>
                                 <input type='text' name='name' onChange={this.handleInputChange}></input>
                                 <label htmlFor='address'>Address:</label>
