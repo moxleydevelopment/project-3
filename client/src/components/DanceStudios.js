@@ -69,20 +69,22 @@ export default class DanceStudios extends Component {
             <div>
                 {
                     this.state.createNewStudio ?
-                        <div> <form className='create-form-studio' onSubmit={this.createStudio}>
-                            <label htmlFor='name'>Studio Name:</label>
-                            <input type='text' name='name' onChange={this.handleInputChange}></input>
-                            <label htmlFor='address'>Address:</label>
-                            <input type='text' name='address' onChange={this.handleInputChange}></input>
-                            <label htmlFor='phoneNumber'>Phone Number:</label>
-                            <input type='number' name='phoneNumber' onChange={this.handleInputChange}></input>
-                            <label htmlFor='hoursOfOperation'>Hours of Operation:</label>
-                            <input type='text' name='hoursOfOperation' onChange={this.handleInputChange}></input>
-                            <label htmlFor='description'>Description:</label>
-                            <textarea name='description' onChange={this.handleInputChange}></textarea>
-                            <input type='submit' value='Submit'></input>
+                        <div>
+                            <form className='create-form-studio' onSubmit={this.createStudio}>
+                                <label htmlFor='name'>Studio Name:</label>
+                                <input type='text' name='name' onChange={this.handleInputChange}></input>
+                                <label htmlFor='address'>Address:</label>
+                                <input type='text' name='address' onChange={this.handleInputChange}></input>
+                                <label htmlFor='phoneNumber'>Phone Number:</label>
+                                <input type='number' name='phoneNumber' onChange={this.handleInputChange}></input>
+                                <label htmlFor='hoursOfOperation'>Hours of Operation:</label>
+                                <input type='text' name='hoursOfOperation' onChange={this.handleInputChange}></input>
+                                <label htmlFor='description'>Description:</label>
+                                <textarea name='description' onChange={this.handleInputChange}></textarea>
+                                <input type='submit' value='Submit'></input>
 
-                        </form></div>
+                            </form>
+                        </div>
 
                         : <div>
                             <h1>This is where we have the dance studios</h1>
