@@ -63,7 +63,7 @@ export default class DanceStudios extends Component {
 
     render() {
         let studios = this.state.danceStudios.map((studio) => {
-            return <p key={studio._id}><Link to={`/api/dancestudio/${studio._id}`} >{studio.name}</Link></p>
+            return <p key={studio._id}><Link to={`/dancestudio/${studio._id}`} >{studio.name}</Link></p>
         })
         return (
             <div>
