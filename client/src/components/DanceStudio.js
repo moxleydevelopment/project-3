@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 class DanceStudio extends Component {
     state = {
         danceStudio: {},
         editForm: false,
-        danceClasses: []
+        danceClasses: [],
+        redirectToHome: false
     }
 
     getStudio = () => {
@@ -20,12 +22,22 @@ class DanceStudio extends Component {
         this.getStudio()
     }
 
-    updateDanceStudio = () =>{
-        axios.put(`/api/dancestudio/${this.props.match.params.studioId}`, this.state.danceStudio )
-        .then(()=>{
-            this.getStudio()
-        })
+    updateDanceStudio = (event) => {
+        event.preventDefault()
+        axios.put(`/api/dancestudio/${this.props.match.params.studioId}`, this.state.danceStudio)
+            .then(() => {
+                this.getStudio()
+            })
     }
+
+    deleteDanceStudio = () => {
+        axios.delete(`/api/dancestudio/${this.props.match.params.studioId}`)
+            .then(() => {
+                this.setState({ redirectToHome: true })
+            })
+    }
+
+
 
     handleInputChange = (event) => {
         const copiedStudio = { ...this.state.danceStudio }
@@ -43,6 +55,9 @@ class DanceStudio extends Component {
     }
 
     render() {
+        if(this.state.redirectToHome) {
+            return <Redirect to="/" />
+        }
 
 
         return (
@@ -71,6 +86,7 @@ class DanceStudio extends Component {
                         <p>{this.state.danceStudio.hoursOfOperation}</p>
                         <p>{this.state.danceStudio.description}</p>
                         <button onClick={this.toggleForm}>Update</button>
+                        <button onClick={this.deleteDanceStudio}>Delete</button>
                     </div>
                 }
 
