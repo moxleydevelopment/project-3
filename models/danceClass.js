@@ -12,7 +12,7 @@ const DanceClassCollection = mongoose.model('DanceClass', DanceClassSchema)
 
 
 
-function getAllDanceCLass() {
+function getAllDanceClass() {
   return DanceClassCollection.find()
 }
 
@@ -39,7 +39,7 @@ function deleteDanceClass(classId){
     return DanceClassCollection.findByIdAndUpdate(classId)
 }
 module.exports = {
-  getAllDanceCLass,
+  getAllDanceClass,
   getDanceClass,
   getClassByStudioId,
   addNewDanceClass,

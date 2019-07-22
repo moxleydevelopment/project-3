@@ -4,6 +4,7 @@ const app = express()
 
 
 const { DanceStudioRouter } = require('./controllers/danceStudio.js')
+const {DanceClassRouter} = require('./controllers/danceClass')
 
 
 
@@ -19,6 +20,7 @@ app.use(express.static(`${__dirname}/client/build`))
 
 
 app.use('/api/dancestudio', DanceStudioRouter)
+app.use('/api/dancestudio/:studioId/danceclass', DanceClassRouter)
 
 /* Step 5
  *
