@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 
 class DanceClass extends Component {
 
+    state = {
+        danceClass: {}
+    }
+
+    getClass = () =>{
+        axios.get(`/api/dancestudio/${this.props.match.params.studioId}/danceclass/${this.props.match.params.classId}`)
+                    .then((classes) => {
+                        this.setState({ danceClasses: classes.data })
+                    })
+    }
+
     componentDidMount() {
-        this.getStudio()
+        this.getClass()
     }
     render() {
         return (

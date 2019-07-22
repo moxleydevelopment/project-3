@@ -11,8 +11,9 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={DanceStudios}/>
-          <Route path='/dancestudio/:studioId' component={DanceStudio}/>
           <Route path='/dancestudio/:studioId/danceclass/:classId' component={DanceClass}/>
+          <Route path='/dancestudio/:studioId' component={DanceStudio}/>
+          
         </Switch>
       </Router>
     </div>
