@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 class DanceClass extends Component {
 
     state = {
         danceClass: {},
-        isUpdateForm: false
+        isUpdateForm: false,
+        redirectToHome: false
     }
 
     getClass = () => {
@@ -27,6 +29,13 @@ class DanceClass extends Component {
             })
     }
 
+    deleteDanceClass = ()=>{
+        axios.delete(`/api/dancestudio/${this.props.match.params.studioId}/danceclass/${this.props.match.params.classId}`)
+        .then(() => {
+            this.setState({ redirectToHome: true })
+        })
+    }
+
     handleInputChange = (event) => {
         const copiedClass = { ...this.state.danceClass }
         copiedClass[event.target.name] = event.target.value
@@ -41,6 +50,10 @@ class DanceClass extends Component {
         }
     }
     render() {
+
+        if (this.state.redirectToHome) {
+            return <Redirect to="/" />
+        }
         return (
             <div>
                 {this.state.isUpdateForm ?
@@ -61,6 +74,7 @@ class DanceClass extends Component {
                     <div>
                     <h1>{this.state.danceClass.name}</h1>
                      <button onClick={this.toggleForm}>Update</button>
+                     <button onClick={this.deleteDanceClass}>Delete</button>
                     </div>
                 }
 

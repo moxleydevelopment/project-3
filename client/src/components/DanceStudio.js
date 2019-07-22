@@ -97,9 +97,9 @@ class DanceStudio extends Component {
 
         let newDance = dance.map((dance, index) => {
             return (
-                <Link to={`/dancestudio/${this.props.match.params.studioId}/danceclass/${dance._id}`}>
+                <Link key={index}  to={`/dancestudio/${this.props.match.params.studioId}/danceclass/${dance._id}`}>
                     <DanceClasses
-                        key={index}
+                        
                         studioId={dance.studioId}
                         name={dance.name}
                         instructor={dance.instructor}
