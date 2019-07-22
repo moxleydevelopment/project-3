@@ -37,6 +37,13 @@ DanceClassRouter.put('/:classId', (req, res)=>{
     })
 })
 
+DanceClassRouter.delete('/:classId', (req, res)=>{
+    DanceClassApi.deleteDanceClass(req.params.classId)
+    .then((danceClass)=>{
+        res.json(danceClass)
+    })
+})
+
 
 module.exports = {
   DanceClassRouter
