@@ -8,6 +8,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <nav>NavBar</nav>
       <Router>
         <Switch>
           <Route exact path="/" component={DanceStudios}/>

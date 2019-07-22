@@ -52,7 +52,7 @@ class DanceClass extends Component {
     render() {
 
         if (this.state.redirectToHome) {
-            return <Redirect to="/" />
+            return <Redirect to={`/dancestudio/${this.state.danceClass.studioId}`} />
         }
         return (
             <div>

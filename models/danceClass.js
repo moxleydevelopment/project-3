@@ -36,7 +36,7 @@ function updateDanceClass(classId, danceClass){
 }
 
 function deleteDanceClass(classId){
-    return DanceClassCollection.findByIdAndUpdate(classId)
+    return DanceClassCollection.findByIdAndDelete(classId)
 }
 module.exports = {
   getAllDanceClass,
