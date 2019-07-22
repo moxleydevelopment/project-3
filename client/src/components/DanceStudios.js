@@ -41,7 +41,6 @@ export default class DanceStudios extends Component {
 
     createStudio = () => {
         const studio = { ...this.state.newStudio }
-        console.log(`This is the object ${studio}`)
         axios.post('/api/dancestudio', studio)
             .then(this.allStudios())
     }
