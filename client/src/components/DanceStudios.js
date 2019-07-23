@@ -4,6 +4,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import Studio from './Studio'
 
 /* Step 2
  * Rename this class to reflect the component being created
@@ -61,11 +62,14 @@ export default class DanceStudios extends Component {
     }
 
     render() {
-        let studios = this.state.danceStudios.map((studio) => {
-            return <p key={studio._id}><Link to={`/dancestudio/${studio._id}`} >{studio.name}</Link></p>
+        let studios = this.state.danceStudios.map((studio, index) => {
+            return <Link key={index} to={`/dancestudio/${studio._id}`} >
+                <Studio name={studio.name}
+                    address={studio.address}
+                /></Link>
         })
         return (
-            <div>
+            <div className='studios-container'>
                 {
                     this.state.createNewStudio ?
                         <div>
@@ -85,8 +89,18 @@ export default class DanceStudios extends Component {
                             </form>
                         </div>
 
-                        : <div>
-                            <h1>This is where we have the dance studios</h1>
+                        : <div className='home-container'>
+                            <div class="videoContainer">
+                                <iframe 
+                                class="videoContainer__video" 
+                                width="1920" 
+                                height="1080" 
+                                src="http://www.youtube.com/embed/IsBInsOj8TY?modestbranding=1&autoplay=1&controls=0&fs=0&loop=1&rel=0&showinfo=0&disablekb=1&playlist=IsBInsOj8TY" 
+                                frameborder="0">
+
+                                </iframe>
+                            </div>
+                            <h1>Title For Home Page</h1>
                             {studios}
                             <button onClick={this.toggleForm}>Add Studio</button>
                         </div>

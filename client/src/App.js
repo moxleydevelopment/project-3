@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import DanceStudios from './components/DanceStudios'
 import DanceStudio from './components/DanceStudio'
 import DanceClass from './components/DanceClass'
+import NavBar from './components/NavBar'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <nav>NavBar</nav>
+      <NavBar/>
       <Router>
         <Switch>
           <Route exact path="/" component={DanceStudios}/>
