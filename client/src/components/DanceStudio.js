@@ -14,7 +14,8 @@ class DanceStudio extends Component {
             studioId: ''
         },
         redirectToHome: false,
-        addClass: false
+        addClass: false,
+
     }
 
     getStudio = () => {
@@ -22,12 +23,18 @@ class DanceStudio extends Component {
             .then((res) => {
 
                 this.setState({ danceStudio: res.data, editForm: false, addClass: false })
-                axios.get(`/api/dancestudio/${this.props.match.params.studioId}/danceclass`)
-                    .then((classes) => {
-                        this.setState({ danceClasses: classes.data })
-                    })
+                this.getClass()
+
 
             })
+    }
+
+    getClass = () => {
+        axios.get(`/api/dancestudio/${this.props.match.params.studioId}/danceclass`)
+            .then((classes) => {
+                this.setState({ danceClasses: classes.data })
+            })
+
     }
 
     componentDidMount() {
@@ -38,7 +45,8 @@ class DanceStudio extends Component {
         event.preventDefault()
         axios.put(`/api/dancestudio/${this.props.match.params.studioId}`, this.state.danceStudio)
             .then(() => {
-                this.getStudio()
+                this.setState({editForm: false})
+                this.getClass()
             })
     }
 
@@ -49,10 +57,12 @@ class DanceStudio extends Component {
             })
     }
 
-    addDanceClass = () => {
+    addDanceClass = (event) => {
+        event.preventDefault()
         axios.post(`/api/dancestudio/${this.props.match.params.studioId}/danceclass`, this.state.newDanceClass)
             .then(() => {
-                this.getStudio()
+                this.setState({addClass: false})
+                this.getClass()
             })
     }
 
@@ -97,9 +107,9 @@ class DanceStudio extends Component {
 
         let newDance = dance.map((dance, index) => {
             return (
-                <Link key={index}  to={`/dancestudio/${this.props.match.params.studioId}/danceclass/${dance._id}`}>
+                <Link key={index} to={`/dancestudio/${this.props.match.params.studioId}/danceclass/${dance._id}`}>
                     <DanceClasses
-                        
+
                         studioId={dance.studioId}
                         name={dance.name}
                         instructor={dance.instructor}
@@ -114,7 +124,7 @@ class DanceStudio extends Component {
 
 
         return (
-            <div>
+            <div className=''>
                 {this.state.editForm ?
                     <div>
                         <form className='form' onSubmit={this.updateDanceStudio}>
@@ -123,7 +133,7 @@ class DanceStudio extends Component {
                             <label htmlFor='address'>Address:</label>
                             <input type='text' name='address' onChange={this.handleInputChange} value={this.state.danceStudio.address}></input>
                             <label htmlFor='phoneNumber'>Phone Number:</label>
-                            <input type='number' name='phoneNumber' onChange={this.handleInputChange} value={this.state.danceStudio.phoneNumber}></input>
+                            <input type='tel' name='phoneNumber' onChange={this.handleInputChange} value={this.state.danceStudio.phoneNumber}></input>
                             <label htmlFor='hoursOfOperation'>Hours of Operation:</label>
                             <input type='text' name='hoursOfOperation' onChange={this.handleInputChange} value={this.state.danceStudio.hoursOfOperation}></input>
                             <label htmlFor='description'>Description:</label>

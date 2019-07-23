@@ -7,17 +7,24 @@ import NavBar from './components/NavBar'
 import './App.css';
 
 function App() {
+
+
+
   return (
     <div className="App">
-      <NavBar/>
-      <Router>
+      <NavBar />
+      <div className='wapper-container'> 
+        <Router>
         <Switch>
+
           <Route exact path="/" component={DanceStudios}/>
           <Route path='/dancestudio/:studioId/danceclass/:classId' component={DanceClass}/>
           <Route path='/dancestudio/:studioId' component={DanceStudio}/>
           
         </Switch>
       </Router>
+      </div>
+      
     </div>
   );
 }

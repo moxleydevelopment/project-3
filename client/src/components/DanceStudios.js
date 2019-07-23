@@ -29,7 +29,7 @@ export default class DanceStudios extends Component {
     *   setState can be run here as well
     *   -REMINDER remember `setState` it is an async function
     */
-    allStudios = () => {
+    getAllStudios = () => {
         axios.get('/api/dancestudio')
             .then((res) => {
                 this.setState({ danceStudios: res.data, createNewStudio: false, newStudio: {} })
@@ -37,13 +37,13 @@ export default class DanceStudios extends Component {
     }
 
     componentDidMount() {
-        this.allStudios()
+        this.getAllStudios()
     }
 
     createStudio = () => {
         const studio = { ...this.state.newStudio }
         axios.post('/api/dancestudio', studio)
-            .then(this.allStudios())
+            .then(this.getAllStudios())
     }
 
     handleInputChange = (event) => {
@@ -79,7 +79,7 @@ export default class DanceStudios extends Component {
                                 <label htmlFor='address'>Address:</label>
                                 <input type='text' name='address' onChange={this.handleInputChange}></input>
                                 <label htmlFor='phoneNumber'>Phone Number:</label>
-                                <input type='number' name='phoneNumber' onChange={this.handleInputChange}></input>
+                                <input type='tel' name='phoneNumber' onChange={this.handleInputChange}></input>
                                 <label htmlFor='hoursOfOperation'>Hours of Operation:</label>
                                 <input type='text' name='hoursOfOperation' onChange={this.handleInputChange}></input>
                                 <label htmlFor='description'>Description:</label>
@@ -89,17 +89,14 @@ export default class DanceStudios extends Component {
                             </form>
                         </div>
 
-                        : <div className='home-container'>
-                            <div class="videoContainer">
-                                <iframe 
-                                class="videoContainer__video" 
-                                width="1920" 
-                                height="1080" 
-                                src="http://www.youtube.com/embed/IsBInsOj8TY?modestbranding=1&autoplay=1&controls=0&fs=0&loop=1&rel=0&showinfo=0&disablekb=1&playlist=IsBInsOj8TY" 
-                                frameborder="0">
+                        :
 
-                                </iframe>
+                        <div className='home-container'>
+                            <div className="bg-video">
+                                <div className="overlay"></div>
+                                <div id="player"></div>
                             </div>
+                            <script></script>
                             <h1>Title For Home Page</h1>
                             {studios}
                             <button onClick={this.toggleForm}>Add Studio</button>

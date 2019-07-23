@@ -6,7 +6,7 @@ class DanceClass extends Component {
 
     state = {
         danceClass: {},
-        isUpdateForm: false,
+        isUpdateFormDisplayed: false,
         redirectToHome: false
     }
 
@@ -25,6 +25,7 @@ class DanceClass extends Component {
         event.preventDefault()
         axios.put(`/api/dancestudio/${this.props.match.params.studioId}/danceclass/${this.props.match.params.classId}`, this.state.danceClass)
             .then(() => {
+                this.setState({isUpdateFormDisplayed: false})
                 this.getClass()
             })
     }
@@ -44,9 +45,9 @@ class DanceClass extends Component {
 
     toggleForm = () => {
         if (this.state.createNewStudio) {
-            this.setState({ isUpdateForm: false })
+            this.setState({ isUpdateFormDisplayed: false })
         } else {
-            this.setState({ isUpdateForm: true })
+            this.setState({ isUpdateFormDisplayed: true })
         }
     }
     render() {
@@ -56,7 +57,7 @@ class DanceClass extends Component {
         }
         return (
             <div>
-                {this.state.isUpdateForm ?
+                {this.state.isUpdateFormDisplayed ?
                     <div>
                         <form className='form' onSubmit={this.updateDanceClass}>
                             <label htmlFor='name'> Class Name:</label>
@@ -73,6 +74,7 @@ class DanceClass extends Component {
                     :
                     <div>
                     <h1>{this.state.danceClass.name}</h1>
+                    <p>{this.state.danceClass.instructor}</p>
                      <button onClick={this.toggleForm}>Update</button>
                      <button onClick={this.deleteDanceClass}>Delete</button>
                     </div>

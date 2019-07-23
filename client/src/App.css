@@ -1,15 +1,26 @@
 .App {
   text-align: center;
 }
+
+.wapper-container {
+  padding-top: 130px;
+}
 /*******  Navigation Menue  **************/
 .nav-bar-container {
   min-width: 100%;
-  background-color: blue; 
+  
   
 }
 .nav-header {
   padding-top: 10px;
   text-align: left;
+  color:red;
+  padding-left: 10px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .nav-links {
@@ -44,35 +55,44 @@ border-bottom: 1px solid #000000;
 
 }
 
-.home-container{
-  display: fixed;
-}
-
-.videoContainer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.studios-container .bg-video {
+  position: fixed;
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
- ;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
 }
-
-iframe {
-  
-  width: 100%;
-  height: 100%; 
+.studios-container .bg-video #player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+}
+.studios-container .bg-video .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+.studios-container h1 {
+  color: white;
+  text-align: center;
+  margin-top: 35vh;
+  font-size: 64px;
+  text-shadow: 1px 1px 3px black;
 }
 .form{
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
   max-width: 300px;
+  position: relative;
   
 }
 
