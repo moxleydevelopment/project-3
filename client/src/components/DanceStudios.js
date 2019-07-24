@@ -63,7 +63,7 @@ export default class DanceStudios extends Component {
 
     render() {
         let studios = this.state.danceStudios.map((studio, index) => {
-            return <Link key={index} to={`/dancestudio/${studio._id}`} >
+            return <Link className='studio-title' key={index} to={`/dancestudio/${studio._id}`} >
                 <Studio name={studio.name}
                     address={studio.address}
                 /></Link>
@@ -96,8 +96,7 @@ export default class DanceStudios extends Component {
                                 <div className="overlay"></div>
                                 <div id="player"></div>
                             </div>
-                            <script></script>
-                            <h1>Title For Home Page</h1>
+                            <h1>Dance Studio's</h1>
                             {studios}
                             <button onClick={this.toggleForm}>Add Studio</button>
                         </div>

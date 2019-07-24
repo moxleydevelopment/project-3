@@ -124,7 +124,7 @@ class DanceStudio extends Component {
 
 
         return (
-            <div className=''>
+            <div className='single-studio-container backgroundImg'>
                 {this.state.editForm ?
                     <div>
                         <form className='form' onSubmit={this.updateDanceStudio}>
@@ -138,7 +138,7 @@ class DanceStudio extends Component {
                             <input type='text' name='hoursOfOperation' onChange={this.handleInputChange} value={this.state.danceStudio.hoursOfOperation}></input>
                             <label htmlFor='description'>Description:</label>
                             <textarea name='description' onChange={this.handleInputChange} value={this.state.danceStudio.description}></textarea>
-                            <input type='submit' value='Submit'></input>
+                            <input className='btn' type='submit' value='Submit'></input>
 
                         </form>
                     </div>
@@ -152,7 +152,7 @@ class DanceStudio extends Component {
                                 <input type='text' name='instructor' onChange={this.handleInputChangeOnClass}></input>
                                 <label htmlFor='classSize'>Class Size:</label>
                                 <input type='number' name='classSize' onChange={this.handleInputChangeOnClass}></input>
-                                <input type='submit' value='Submit'></input>
+                                <input  className='btn' type='submit' value='Submit'></input>
                             </form>
 
                         </div>
@@ -162,9 +162,9 @@ class DanceStudio extends Component {
                             <p>{this.state.danceStudio.phoneNumber}</p>
                             <p>{this.state.danceStudio.hoursOfOperation}</p>
                             <p>{this.state.danceStudio.description}</p>
-                            <button onClick={this.toggleForm}>Update</button>
-                            <button onClick={this.deleteDanceStudio}>Delete</button>
-                            <button onClick={this.addClassBtn}>Add Class</button>
+                            <button className='btn' onClick={this.toggleForm}>Update</button>
+                            <button className='btn' onClick={this.deleteDanceStudio}>Delete</button>
+                            <button className='btn' onClick={this.addClassBtn}>Add Class</button>
                             {newDance}
                         </div>
                 }
