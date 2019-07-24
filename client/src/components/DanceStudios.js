@@ -72,8 +72,9 @@ export default class DanceStudios extends Component {
             <div className='studios-container'>
                 {
                     this.state.createNewStudio ?
-                        <div>
-                            <form className='form' onSubmit={this.createStudio}>
+                        <div className='backgroundImg'>
+                            <h1>Rep Your Dance Studio!!</h1>
+                            <form className='form add-studio' onSubmit={this.createStudio}>
                                 <label htmlFor='name'>Studio Name:</label>
                                 <input type='text' name='name' onChange={this.handleInputChange}></input>
                                 <label htmlFor='address'>Address:</label>
@@ -84,7 +85,7 @@ export default class DanceStudios extends Component {
                                 <input type='text' name='hoursOfOperation' onChange={this.handleInputChange}></input>
                                 <label htmlFor='description'>Description:</label>
                                 <textarea name='description' onChange={this.handleInputChange}></textarea>
-                                <input type='submit' value='Submit'></input>
+                                <input className='btn' type='submit' value='Submit'></input>
 
                             </form>
                         </div>
@@ -98,7 +99,7 @@ export default class DanceStudios extends Component {
                             </div>
                             <h1>Dance Studio's</h1>
                             {studios}
-                            <button onClick={this.toggleForm}>Add Studio</button>
+                            <button className='btn' onClick={this.toggleForm}>Add Studio</button>
                         </div>
 
                 }

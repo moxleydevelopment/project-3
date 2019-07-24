@@ -1,12 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
+
+
 
 class NavBar extends Component {
 
     state = {
         prevScrollpos: window.pageYOffset,
-        opacity: 0
+        opacity: 1
        
       }
+
+       
 
       handleScroll = ()=>{
         const { prevScrollpos } = this.state
@@ -18,14 +23,15 @@ class NavBar extends Component {
           });
 
           if (visible){
-            opacity--
+             (opacity = opacity + .1)
             this.setState({opacity})
           }else{
-            opacity++
+            (opacity = opacity - .1)
             this.setState({opacity})
               
 
           }
+          console.log(this.state.opacity)
       }
 
       componentDidMount() {
@@ -39,7 +45,7 @@ class NavBar extends Component {
 
     render() {
         return (
-            <div className='nav-bar-container sticky'>
+            <div  style={{opacity:this.state.opacity}} className='nav-bar-container sticky'>
                 <div className='nav-header'>
                     <h1>Dance Title</h1>
                 </div>
