@@ -47,7 +47,7 @@ class NavBar extends Component {
         return (
             <div  style={{opacity:this.state.opacity}} className='nav-bar-container sticky'>
                 <div className='nav-header'>
-                    <h1>Dance Title</h1>
+                    <h1>Dance Life  <i className='fas fa-music'></i></h1>
                 </div>
                 <div className='nav-links'>  
                     <ul>

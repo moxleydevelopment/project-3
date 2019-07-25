@@ -17,23 +17,24 @@ class DanceClass extends Component {
         axios.get(`/api/dancestudio/${this.props.match.params.studioId}/danceclass/${this.props.match.params.classId}`)
             .then((classes) => {
                 this.setState({ danceClass: classes.data })
+                this.getYTVideos()
             })
     }
     getYTVideos = ()=>{
         
-        let finalURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=hiphop+choreography&type=video&videoDefinition=high&key=${this.state.ytKey}`
+        let finalURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${this.state.danceClass.danceType}+choreography&type=video&videoDefinition=high&key=${this.state.ytKey}`
          axios.get(finalURL)
          .then((res)=>{
             let results = [...res.data.items]
             this.setState({danceClassVideos: results})
-            console.log(this.state.danceClassVideos)
+           
          })
 
          }
 
     componentDidMount() {
         this.getClass()
-        this.getYTVideos()
+        
     }
 
   
@@ -91,8 +92,21 @@ class DanceClass extends Component {
                             <input type='text' name='name' onChange={this.handleInputChange} value={this.state.danceClass.name}></input>
                             <label htmlFor='address'>Instructor:</label>
                             <input type='text' name='instructor' onChange={this.handleInputChange} value={this.state.danceClass.instructor}></input>
-                            <label htmlFor='phoneNumber'>Class Size:</label>
-                            <input type='number' name='classSize' onChange={this.handleInputChange} value={this.state.danceClass.classSize}></input>
+                            <label htmlFor='danceType'>Class Type:</label>
+                                <select name="danceType" onChange={this.handleInputChange}>
+                                    <option value={this.state.danceClass.danceType}>{this.state.danceClass.danceType}</option>
+                                    <option value="African">African</option>
+                                    <option value="Hip Hop">Hip Hop</option>
+                                    <option value="Tap ">Tap</option>
+                                    <option value="Freestyle">Freestyle</option>
+                                    <option value="Ballet">Ballet</option>
+                                    <option value="Jazz">Jazz</option>
+                                    <option value="Contempary">Contempary</option>
+                                    <option value="Salsa">Salsa</option>
+                                    <option value="West Coast Swing">West Coast Swing</option>
+                                    <option value="Folk">Folk</option>
+                                    <option value="Modern">Modern</option>
+                                </select>
                             <input className='btn' type='submit' value='Submit'></input>
 
                         </form>
@@ -100,10 +114,11 @@ class DanceClass extends Component {
                     </div>
                     :
                     <div className='class-div' >
-                       <p className='back'><a href={`/dancestudio/${this.state.danceClass.studioId}`}><span><i class='fas fa-arrow-left'></i>  Back to Studio</span></a></p>
+                       <p className='back'><a href={`/dancestudio/${this.state.danceClass.studioId}`}><span><i className='fas fa-arrow-left'></i>  Back to Studio</span></a></p>
                         <div className='class-info-container' >
                           <h1>{this.state.danceClass.name}</h1>
                         <p>Instructor:  {this.state.danceClass.instructor}</p>
+                        <p>Dance Style: {this.state.danceClass.danceType}</p>
                         <button className='btn' onClick={this.toggleForm}>Update</button>
                         <button className='btn' onClick={this.deleteDanceClass}>Delete</button>  
                         </div>

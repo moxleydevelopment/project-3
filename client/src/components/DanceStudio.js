@@ -125,7 +125,8 @@ class DanceStudio extends Component {
 
         return (
             <div className='single-studio-container backgroundImg'>
-                <p><a href='/'><span><i class='fas fa-arrow-left'></i></span>  Back to Studios</a></p>
+                {(this.state.editForm || this.setState.addClass)?<p><a href={`/dancestudio/${this.props.match.params.studioId}`}><span><i class='fas fa-arrow-left'></i></span>  Back to Studio</a></p> :
+                <p><a href='/'><span><i class='fas fa-arrow-left'></i></span>  Back to Studios</a></p>}
                 {this.state.editForm ?
                     <div className='edit-studio'>
                         <h3>Update Dancers....</h3>
@@ -152,8 +153,20 @@ class DanceStudio extends Component {
                                 <input type='text' name='name' onChange={this.handleInputChangeOnClass}></input>
                                 <label htmlFor='instructor'>Instructor:</label>
                                 <input type='text' name='instructor' onChange={this.handleInputChangeOnClass}></input>
-                                <label htmlFor='classSize'>Class Size:</label>
-                                <input type='number' name='classSize' onChange={this.handleInputChangeOnClass}></input>
+                                <label htmlFor='danceType'>Dance Style:</label>
+                                <select name="danceType" onChange={this.handleInputChangeOnClass}>
+                                    <option value="African">African</option>
+                                    <option value="Hip Hop">HipHop</option>
+                                    <option value="Tap ">Tap</option>
+                                    <option value="Freestyle">Freestyle</option>
+                                    <option value="Ballet">Ballet</option>
+                                    <option value="Jazz">Jazz</option>
+                                    <option value="Contempary">Contempary</option>
+                                    <option value="Salsa">Salsa</option>
+                                    <option value="West Coast Swing">West Coast Swing</option>
+                                    <option value="Folk">Folk</option>
+                                    <option value="Modern">Modern</option>
+                                </select>
                                 <input  className='btn' type='submit' value='Submit'></input>
                             </form>
 
@@ -164,7 +177,7 @@ class DanceStudio extends Component {
                             <p><span className='formal-text'>ADDRESS: </span>{this.state.danceStudio.address}</p>
                             <p><span className='formal-text'>TELEPHONE: </span>{this.state.danceStudio.phoneNumber}</p>
                             <p><span className='formal-text'>LOCATION: </span>{this.state.danceStudio.hoursOfOperation}</p>
-                            <p><span className='formal-text'>ABOUT:  {this.state.danceStudio.description} </span></p>
+                            <p><span className='formal-text'>ABOUT:  </span> {this.state.danceStudio.description}</p>
                             <button className='btn' onClick={this.toggleForm}>Update</button>
                             <button className='btn' onClick={this.deleteDanceStudio}>Delete</button>
                             <button className='btn' onClick={this.addClassBtn}>Add Class</button>

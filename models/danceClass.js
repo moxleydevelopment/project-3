@@ -6,7 +6,7 @@ const DanceClassSchema = new mongoose.Schema({
  instructor: String,
  classSize: Number,
  studioId: String,
- type: String
+ danceType: String
 })
 
 const DanceClassCollection = mongoose.model('DanceClass', DanceClassSchema)
