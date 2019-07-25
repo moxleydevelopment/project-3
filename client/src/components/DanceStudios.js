@@ -97,9 +97,10 @@ export default class DanceStudios extends Component {
                                 <div className="overlay"></div>
                                 <div id="player"></div>
                             </div>
-                            <h1>Dance Studio's</h1>
+                            <h1 className='home-studio-banner'>Dance Studio's</h1>
                             {studios}
                             <button className='btn' onClick={this.toggleForm}>Add Studio</button>
+                            <p>Click too add your favorite dance studio...</p>
                         </div>
 
                 }

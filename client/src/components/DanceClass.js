@@ -100,9 +100,10 @@ class DanceClass extends Component {
                     </div>
                     :
                     <div className='class-div' >
+                       <p className='back'><a href={`/dancestudio/${this.state.danceClass.studioId}`}><span><i class='fas fa-arrow-left'></i>  Back to Studio</span></a></p>
                         <div className='class-info-container' >
                           <h1>{this.state.danceClass.name}</h1>
-                        <p>{this.state.danceClass.instructor}</p>
+                        <p>Instructor:  {this.state.danceClass.instructor}</p>
                         <button className='btn' onClick={this.toggleForm}>Update</button>
                         <button className='btn' onClick={this.deleteDanceClass}>Delete</button>  
                         </div>

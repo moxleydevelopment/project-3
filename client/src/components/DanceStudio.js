@@ -125,8 +125,10 @@ class DanceStudio extends Component {
 
         return (
             <div className='single-studio-container backgroundImg'>
+                <p><a href='/'><span><i class='fas fa-arrow-left'></i></span>  Back to Studios</a></p>
                 {this.state.editForm ?
                     <div className='edit-studio'>
+                        <h3>Update Dancers....</h3>
                         <form className='form edit-studio-form ' onSubmit={this.updateDanceStudio}>
                             <label htmlFor='name'>Studio Name:</label>
                             <input type='text' name='name' onChange={this.handleInputChange} value={this.state.danceStudio.name}></input>
@@ -157,6 +159,7 @@ class DanceStudio extends Component {
 
                         </div>
                         : <div className='studio-info-container'>
+                            
                             <h1 className='studio-info-container-title'>{this.state.danceStudio.name}</h1>
                             <p><span className='formal-text'>ADDRESS: </span>{this.state.danceStudio.address}</p>
                             <p><span className='formal-text'>TELEPHONE: </span>{this.state.danceStudio.phoneNumber}</p>

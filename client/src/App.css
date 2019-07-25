@@ -173,7 +173,7 @@ border-bottom: 1px solid #000000;
   height: 100vh;
   z-index: 0;
 }
-.studios-container h1 {
+.home-studio-banner  {
   color: #730341;
   text-align: center;
   margin-top: 20vh;
@@ -185,6 +185,23 @@ border-bottom: 1px solid #000000;
   font-family: 'Faster One', cursive;
   
 }
+
+.studio-template h2 {
+  font-family: 'Atomic Age', cursive;
+  font-size: 50px;
+  text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+  transition: transform .2s;
+}
+.studio-template h2:hover {
+  transform: scale(1.5);
+}
+
+.studios-container p {
+  color: #eeeeee;
+}
+
+
+
 
 
 
@@ -220,6 +237,14 @@ border-bottom: 1px solid #000000;
 
 .rep-header{
   grid-column: 1/ span 5;
+  color: #730341;
+  font-family: 'Atomic Age', cursive;
+  text-align: center;
+  margin-top: 20vh;
+  font-size: 50px;
+  text-shadow: 3px 3px 9px black;
+  text-decoration: none;
+  font-weight: 700;
 }
 
 .add-studio{
@@ -239,8 +264,13 @@ button {
 }
 
 .edit-studio {
-  grid-row: 2/ span 2;
+  grid-row: 1/ span 3;
   grid-column: 2/ span 5;
+}
+
+.edit-studio h3{
+  font-size: 40px;
+  text-align: left;
 }
 
 .edit-studio-form label {
@@ -286,6 +316,9 @@ button {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
 
+}
+.single-studio-container a {
+  text-decoration: none;
 }
 
 .studio-info-container {
@@ -337,6 +370,29 @@ button {
     grid-column: 1 /span 5;
     grid-row: 1/ span 5;
   }
+
+  .class-div .back {
+   text-align: left;
+   
+   padding-left: 10px;
+  }
+  .back a {
+    color: #730341;
+    text-decoration: none;
+  }
+
+.class-info-container h1 {
+  color: #730341;
+  font-size: 50px;
+  text-shadow: 3px 3px 9px black;
+  font-family: 'Atomic Age', cursive;
+}
+.class-info-container p {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 30px;
+}
+
+
   .youTube-container {
     grid-column: 1 /span 5;
     grid-row: 3/ span 2;
