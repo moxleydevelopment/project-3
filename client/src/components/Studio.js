@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Studio extends Component {
     render() {
         return (
-            <div>
+            <div className='studio-template'>
 
                 <h2>{this.props.name}</h2>
                 

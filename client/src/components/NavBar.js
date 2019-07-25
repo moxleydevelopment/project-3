@@ -52,7 +52,7 @@ class NavBar extends Component {
                 <div className='nav-links'>  
                     <ul>
                     <li><a href='/'>Home</a></li>
-                    <li><a href='#'>About</a></li>
+                    <li><a href='/'>About</a></li>
                 </ul>
                 </div>
                

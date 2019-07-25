@@ -126,8 +126,8 @@ class DanceStudio extends Component {
         return (
             <div className='single-studio-container backgroundImg'>
                 {this.state.editForm ?
-                    <div>
-                        <form className='form' onSubmit={this.updateDanceStudio}>
+                    <div className='edit-studio'>
+                        <form className='form edit-studio-form ' onSubmit={this.updateDanceStudio}>
                             <label htmlFor='name'>Studio Name:</label>
                             <input type='text' name='name' onChange={this.handleInputChange} value={this.state.danceStudio.name}></input>
                             <label htmlFor='address'>Address:</label>
@@ -143,12 +143,12 @@ class DanceStudio extends Component {
                         </form>
                     </div>
                     : this.state.addClass ?
-                        <div>
+                        <div className='new-class'>
                             <h1>Add New Dance Class</h1>
-                            <form className='form' onSubmit={this.addDanceClass}>
+                            <form className='form new-class-form' onSubmit={this.addDanceClass}>
                                 <label htmlFor='name'>Class Name:</label>
                                 <input type='text' name='name' onChange={this.handleInputChangeOnClass}></input>
-                                <label htmlFor='instructor'>Instructor</label>
+                                <label htmlFor='instructor'>Instructor:</label>
                                 <input type='text' name='instructor' onChange={this.handleInputChangeOnClass}></input>
                                 <label htmlFor='classSize'>Class Size:</label>
                                 <input type='number' name='classSize' onChange={this.handleInputChangeOnClass}></input>
@@ -156,15 +156,16 @@ class DanceStudio extends Component {
                             </form>
 
                         </div>
-                        : <div>
-                            <h1>{this.state.danceStudio.name}</h1>
-                            <p>{this.state.danceStudio.address}</p>
-                            <p>{this.state.danceStudio.phoneNumber}</p>
-                            <p>{this.state.danceStudio.hoursOfOperation}</p>
-                            <p>{this.state.danceStudio.description}</p>
+                        : <div className='studio-info-container'>
+                            <h1 className='studio-info-container-title'>{this.state.danceStudio.name}</h1>
+                            <p><span className='formal-text'>ADDRESS: </span>{this.state.danceStudio.address}</p>
+                            <p><span className='formal-text'>TELEPHONE: </span>{this.state.danceStudio.phoneNumber}</p>
+                            <p><span className='formal-text'>LOCATION: </span>{this.state.danceStudio.hoursOfOperation}</p>
+                            <p><span className='formal-text'>ABOUT:  {this.state.danceStudio.description} </span></p>
                             <button className='btn' onClick={this.toggleForm}>Update</button>
                             <button className='btn' onClick={this.deleteDanceStudio}>Delete</button>
                             <button className='btn' onClick={this.addClassBtn}>Add Class</button>
+                           
                             {newDance}
                         </div>
                 }

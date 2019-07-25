@@ -73,7 +73,7 @@ export default class DanceStudios extends Component {
                 {
                     this.state.createNewStudio ?
                         <div className='backgroundImg'>
-                            <h1>Rep Your Dance Studio!!</h1>
+                            <h1 className='rep-header'>Rep Your Dance Studio!!</h1>
                             <form className='form add-studio' onSubmit={this.createStudio}>
                                 <label htmlFor='name'>Studio Name:</label>
                                 <input type='text' name='name' onChange={this.handleInputChange}></input>

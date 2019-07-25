@@ -5,7 +5,8 @@ const DanceClassSchema = new mongoose.Schema({
  name: String,
  instructor: String,
  classSize: Number,
- studioId: String
+ studioId: String,
+ type: String
 })
 
 const DanceClassCollection = mongoose.model('DanceClass', DanceClassSchema)

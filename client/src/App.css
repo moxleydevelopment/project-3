@@ -12,10 +12,22 @@
   
 
 }
+.formal-text{
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+ 
+  font-size: 30px;
+
+}
 
 .home-container {
   grid-column: 1 /span 5;
   grid-row: 1/ span 5;
+}
+
+.home-container h1{
+  font-weight: 700;
+  text-decoration-line: underline;
 }
 
 .backgroundImg{
@@ -61,7 +73,7 @@ a {
   border-top-color:  #96d1f8;
   background: #6e0638;
   color: #ccc;
-  padding: 6px 11px;
+  
   }
 .btn:active {
   border-top-color:  #96d1f8;
@@ -165,37 +177,48 @@ border-bottom: 1px solid #000000;
   color: #730341;
   text-align: center;
   margin-top: 20vh;
-  font-size: 64px;
-  text-shadow: 1px 1px 3px black;
+  font-size: 95px;
+  text-shadow: 3px 3px 9px black;
   text-decoration: none;
+  font-weight: 700;
+  text-decoration-line: underline;
+  font-family: 'Faster One', cursive;
+  
 }
+
+
 
 /******* CSS for Form  ***********/
 .form{
   border-radius: 5px;
-  background-color: rgb(235, 213, 213);
+  background-color: rgba(56, 56, 56, 0.5);
   padding: 20px;
   max-width: 800px;
   position: relative;
   display: grid;
   grid-template-columns: 200px 1fr;
   grid-gap: 16px;
+  color: #ccc;
+  font-family: 'Roboto Mono', monospace;
 
   
 }
 
-.form input[type=text], textarea, input[type=number] {
+.form input[type=text], textarea, input[type=tel] {
   width: 100%; 
-  padding: 12px; 
+  padding: 8px;
+  background-color: rgba(255, 255, 255, .5); 
   border: 1px solid #ccc; 
   border-radius: 4px; 
   box-sizing: border-box; 
   margin-top: 6px; 
   margin-bottom: 16px; 
-  resize: vertical 
+  resize: vertical ;
+  color: #730341;
+  font-weight: 700;
 }
 
-.backgroundImg h1 {
+.rep-header{
   grid-column: 1/ span 5;
 }
 
@@ -205,6 +228,9 @@ grid-column: 2/ span 5;
 }
 .add-studio label {
   grid-column: 1 / 2;
+  font-size: 20px;
+  align-self: center;
+  text-align: left;
 }
 
 .add-studio input,
@@ -212,9 +238,119 @@ button {
   grid-column: 2 / 3;
 }
 
+.edit-studio {
+  grid-row: 2/ span 2;
+  grid-column: 2/ span 5;
+}
+
+.edit-studio-form label {
+  grid-column: 1 / 2;
+  font-size: 20px;
+  align-self: center;
+  text-align: left;
+}
+
+.edit-studio-form input,
+button {
+  grid-column: 2 / 3;
+}
+
+
+
+
 /*********  single-studio-container ****************/
+.new-class {
+  grid-row: 2/ span 2;
+  grid-column: 2/ span 5;
+}
+.new-class input,
+button {
+  grid-column: 2 / 3;
+}
+
+.new-class label {
+  grid-column: 1 / 2;
+  font-size: 20px;
+  align-self: center;
+  text-align: left;
+}
+
+.new-class h1 {
+  text-align: left;
+  
+}
 
 .single-studio-container {
     color: white;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
 
 }
+
+.studio-info-container {
+  grid-row: 1/ span 5;
+  grid-column: 2/ span 3;
+  background-color: rgba(56, 56, 56, 0.5);
+}
+
+.studio-info-container-title {
+  font-family: 'Atomic Age', cursive;
+  text-shadow: 0 0 3px #ffffff, 0 0 5px #ffffff;
+  font-size: 40px;
+  
+}
+
+.studio-info-container p {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+  /********** single class info container  ******/
+
+  .class-info-container {
+    color: white;
+    grid-row: 1/ span 1;
+    grid-column: 2/ span 3;
+  }
+  .edit-class {
+    grid-row: 2/ span 2;
+    grid-column: 2/ span 5;
+  }
+  
+  .edit-class-form label {
+    grid-column: 1 / 2;
+    font-size: 20px;
+    align-self: center;
+    text-align: left;
+  }
+  
+  .edit-class-form input,
+  button {
+    grid-column: 2 / 3;
+  }
+
+  /***** You Tube Contaner *******/
+
+  .class-div {
+    color: white;
+    grid-column: 1 /span 5;
+    grid-row: 1/ span 5;
+  }
+  .youTube-container {
+    grid-column: 1 /span 5;
+    grid-row: 3/ span 2;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-auto-flow: row;
+
+
+  }
+
+  .ytVideo {
+    max-width: 400px;
+    max-height: 500px;
+    padding: 10px;
+  }
