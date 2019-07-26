@@ -90,6 +90,7 @@ a {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(4, 1fr);
+  transition: top 0.3s;
 }
 .nav-header {
   
@@ -132,6 +133,12 @@ a {
 .nav-links li {
   display: inline;
   padding: 10px 10px 0px 10px;
+  box-shadow: 1px 1px #eee, 3px 3px #eee, 5px 5px #eee, 7px 7px #eee, 9px 9px #eee;
+  transition: all 0.12s ease 0s;
+  transition-property: all;
+  transition-duration: 0.12s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
   font-size: 30px;
   margin: 0px 15px 0px 15px;
   font-family: 'Roboto Mono', monospace;
@@ -143,7 +150,7 @@ a {
 }
 
 .nav-links li:hover {
-border-bottom: 1px solid #ffffff;
+box-shadow: 0 0  #730341;
 }
 
 /***************  Main Studio Page  **********************/
@@ -401,7 +408,7 @@ button {
   .studio-info-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 400px 1fr;
+    grid-template-rows: 410px 1fr;
     
   }
   .studio-info-container .top {
@@ -439,10 +446,30 @@ button {
   background-size: cover;
   padding-left: 10px;
   padding-right: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) ;
+  grid-template-rows:  repeat(3, 1fr);
   
+}
 
+.danceCard h1 {
+  grid-row: 1/ span 1;
+  grid-column: 1/ span 3;
+  justify-self: left;
+}
+
+.danceCard p {
+  grid-row: 2/ span 1;
+  grid-column: 1/ span 3;
+}
+
+
+
+.danceCard form {
+  grid-row: 3/ span 1;
+  grid-column: 1/ span 3;
   
-  
+  justify-self: right;
 }
 
 

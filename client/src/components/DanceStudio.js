@@ -108,7 +108,7 @@ class DanceStudio extends Component {
         let newDance = dance.map((dance, index) => {
             return (
                     <DanceClasses
-
+                        key={dance._id}
                         studioId={dance.studioId}
                         name={dance.name}
                         instructor={dance.instructor}
@@ -125,7 +125,7 @@ class DanceStudio extends Component {
 
         return (
             <div className='single-studio-container backgroundImg'>
-                {(this.state.editForm || this.setState.addClass)?<p><a href={`/dancestudio/${this.props.match.params.studioId}`}><span><i class='fas fa-arrow-left'></i></span>  Back to Studio</a></p> :
+                {(this.state.editForm || this.state.addClass)?<p><a href={`/dancestudio/${this.props.match.params.studioId}`}><span><i class='fas fa-arrow-left'></i></span>  Back to Studio</a></p> :
                 <p><a href='/'><span><i className='fas fa-arrow-left'></i></span>  Back to Studios</a></p>}
                 {this.state.editForm ?
                     <div className='edit-studio'>
