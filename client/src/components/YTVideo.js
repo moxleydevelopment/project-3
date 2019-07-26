@@ -6,7 +6,7 @@ class YTVideo extends Component {
             <div className='ytVideo'>
                 <h4>{this.props.title}</h4>
                 <div>
-                    <iframe src={`https://www.youtube.com/embed/${this.props.videoURL}`}></iframe>
+                    <iframe title={this.props.title} src={`https://www.youtube.com/embed/${this.props.videoURL}`}></iframe>
                 </div>
                 
             </div>

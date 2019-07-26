@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import DanceClasses from './DanceClasses';
-import { Link } from 'react-router-dom'
+
 
 
 class DanceStudio extends Component {
@@ -107,16 +107,16 @@ class DanceStudio extends Component {
 
         let newDance = dance.map((dance, index) => {
             return (
-                <Link key={index} to={`/dancestudio/${this.props.match.params.studioId}/danceclass/${dance._id}`}>
                     <DanceClasses
 
                         studioId={dance.studioId}
                         name={dance.name}
                         instructor={dance.instructor}
                         classSize={dance.classSize}
+                        id={dance._id}
                     >
                     </DanceClasses>
-                </Link>
+     
 
 
             )
@@ -125,8 +125,11 @@ class DanceStudio extends Component {
 
         return (
             <div className='single-studio-container backgroundImg'>
+                {(this.state.editForm || this.setState.addClass)?<p><a href={`/dancestudio/${this.props.match.params.studioId}`}><span><i class='fas fa-arrow-left'></i></span>  Back to Studio</a></p> :
+                <p><a href='/'><span><i className='fas fa-arrow-left'></i></span>  Back to Studios</a></p>}
                 {this.state.editForm ?
                     <div className='edit-studio'>
+                        <h3>Update Dancers....</h3>
                         <form className='form edit-studio-form ' onSubmit={this.updateDanceStudio}>
                             <label htmlFor='name'>Studio Name:</label>
                             <input type='text' name='name' onChange={this.handleInputChange} value={this.state.danceStudio.name}></input>
@@ -143,31 +146,46 @@ class DanceStudio extends Component {
                         </form>
                     </div>
                     : this.state.addClass ?
-                        <div className='new-class'>
-                            <h1>Add New Dance Class</h1>
-                            <form className='form new-class-form' onSubmit={this.addDanceClass}>
-                                <label htmlFor='name'>Class Name:</label>
-                                <input type='text' name='name' onChange={this.handleInputChangeOnClass}></input>
-                                <label htmlFor='instructor'>Instructor:</label>
-                                <input type='text' name='instructor' onChange={this.handleInputChangeOnClass}></input>
-                                <label htmlFor='classSize'>Class Size:</label>
-                                <input type='number' name='classSize' onChange={this.handleInputChangeOnClass}></input>
-                                <input  className='btn' type='submit' value='Submit'></input>
-                            </form>
+                    <div className='new-class'>
+                        <h1>Add New Dance Class</h1>
+                        <form className='form new-class-form' onSubmit={this.addDanceClass}>
+                            <label htmlFor='name'>Class Name:</label>
+                            <input type='text' name='name' onChange={this.handleInputChangeOnClass}></input>
+                            <label htmlFor='instructor'>Instructor:</label>
+                            <input type='text' name='instructor' onChange={this.handleInputChangeOnClass}></input>
+                            <label htmlFor='danceType'>Dance Style:</label>
+                            <select name="danceType" onChange={this.handleInputChangeOnClass}>
+                                <option value="African">African</option>
+                                <option value="Hip Hop">HipHop</option>
+                                <option value="Tap ">Tap</option>
+                                <option value="Freestyle">Freestyle</option>
+                                <option value="Ballet">Ballet</option>
+                                <option value="Jazz">Jazz</option>
+                                <option value="Contempary">Contempary</option>
+                                <option value="Salsa">Salsa</option>
+                                <option value="West Coast Swing">West Coast Swing</option>
+                                <option value="Folk">Folk</option>
+                                <option value="Modern">Modern</option>
+                            </select>
+                            <input  className='btn' type='submit' value='Submit'></input>
+                        </form>
 
+                    </div>
+                    : <div className='studio-info-container'>
+                        <div className='top'>
+                        <h1 className='studio-info-container-title'>{this.state.danceStudio.name}</h1>
+                        <p><span className='formal-text'>ADDRESS: </span>{this.state.danceStudio.address}</p>
+                        <p><span className='formal-text'>TELEPHONE: </span>{this.state.danceStudio.phoneNumber}</p>
+                        <p><span className='formal-text'>LOCATION: </span>{this.state.danceStudio.hoursOfOperation}</p>
+                        <p><span className='formal-text'>ABOUT:  </span> {this.state.danceStudio.description}</p>
+                        <button className='btn' onClick={this.toggleForm}>Update</button>
+                        <button className='btn' onClick={this.deleteDanceStudio}>Delete</button>
+                        <button className='btn' onClick={this.addClassBtn}>Add Class</button>
+                       </div>
+                       <div className='bottom'>
+                        {newDance}
                         </div>
-                        : <div className='studio-info-container'>
-                            <h1 className='studio-info-container-title'>{this.state.danceStudio.name}</h1>
-                            <p><span className='formal-text'>ADDRESS: </span>{this.state.danceStudio.address}</p>
-                            <p><span className='formal-text'>TELEPHONE: </span>{this.state.danceStudio.phoneNumber}</p>
-                            <p><span className='formal-text'>LOCATION: </span>{this.state.danceStudio.hoursOfOperation}</p>
-                            <p><span className='formal-text'>ABOUT:  {this.state.danceStudio.description} </span></p>
-                            <button className='btn' onClick={this.toggleForm}>Update</button>
-                            <button className='btn' onClick={this.deleteDanceStudio}>Delete</button>
-                            <button className='btn' onClick={this.addClassBtn}>Add Class</button>
-                           
-                            {newDance}
-                        </div>
+                    </div>
                 }
 
             </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
+
 class DanceClass extends Component {
       state = {
           bkImages: []
@@ -26,6 +27,7 @@ class DanceClass extends Component {
 
     getImage = ()=>{
        let index = this.getRandomInt(0 , this.state.bkImages.length)
+       console.log(index)
             return {...this.state.bkImages[index]}
 
     }
@@ -37,10 +39,12 @@ class DanceClass extends Component {
         console.log(imageURL.small)
 
         return (
-            <div className='danceCard' style={{backgroundImage:`url(${imageURL.small})`}}>
+            <div className='danceCard' style={{backgroundImage:`url(${imageURL.regular})`}}>
                <h1>{this.props.name}</h1> 
                <p>{this.props.instructor}</p>
-               <button></button>
+               <form action={`/dancestudio/${this.props.studioId}/danceclass/${this.props.id}`}>
+                   <input className='btn' type='submit' value='Sign Up'></input>
+               </form>
               
             </div>
         );

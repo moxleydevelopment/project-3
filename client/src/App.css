@@ -409,14 +409,17 @@ button {
   }
 
   .studio-info-container .bottom {
+    padding-top: 20px;
     grid-column: 1/ span 4;
     grid-row: 2 /span 1;
     display: grid;
-    overflow: hidden;
+    overflow: scroll;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 300px);
+    grid-template-rows: repeat(8 , 300px);
+    max-height: 600px;
     grid-auto-flow: row;
-    grid-gap: 10px;
+    grid-gap: 5px;
+  
   }
 
 .class-info-container h1 {
@@ -431,8 +434,13 @@ button {
 }
 
 .danceCard {
-  max-width: 300px;
-  max-height: 500px;
+  max-width: 400px;
+  max-height: 400px;
+  background-size: cover;
+  padding-left: 10px;
+  padding-right: 20px;
+  
+
   
   
 }
