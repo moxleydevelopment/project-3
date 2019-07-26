@@ -398,6 +398,27 @@ button {
     text-decoration: none;
   }
 
+  .studio-info-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 400px 1fr;
+    
+  }
+  .studio-info-container .top {
+    grid-column: 1/ span 4;
+  }
+
+  .studio-info-container .bottom {
+    grid-column: 1/ span 4;
+    grid-row: 2 /span 1;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 300px);
+    grid-auto-flow: row;
+    grid-gap: 10px;
+  }
+
 .class-info-container h1 {
   color: #730341;
   font-size: 50px;
@@ -407,6 +428,13 @@ button {
 .class-info-container p {
   font-family: 'Roboto Mono', monospace;
   font-size: 30px;
+}
+
+.danceCard {
+  max-width: 300px;
+  max-height: 500px;
+  
+  
 }
 
 
