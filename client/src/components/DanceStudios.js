@@ -22,13 +22,7 @@ export default class DanceStudios extends Component {
         newStudio: {}
     }
 
-    /* Step 4
-    * Use componentDidMount to retrieve any data to display
-    *   Here you can make calls to your local express server
-    *   or to an external API
-    *   setState can be run here as well
-    *   -REMINDER remember `setState` it is an async function
-    */
+
     getAllStudios = () => {
         axios.get('/api/dancestudio')
             .then((res) => {
@@ -37,7 +31,29 @@ export default class DanceStudios extends Component {
     }
 
     componentDidMount() {
+        this.getYTVideo()
         this.getAllStudios()
+        
+    }
+
+    getYTVideo = () => {
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                videoId: 'hkJX4fC0w68',
+                playerVars: {
+                    autoplay: 1,
+                    controls: 0,
+                    modestbranding: 1,
+                    loop: 1,
+                    playlist: 'kNizPk7xBbs'
+                }
+            });
+        }
     }
 
     createStudio = () => {
