@@ -8,7 +8,7 @@ class DanceClass extends Component {
       }
 
     getBackground = ()=>{
-            axios.get(`https://api.unsplash.com/photos/search?client_id=24cf3009b229ebaece09d9a5d96e5193838c23585fddea759d7a5589f4028c12&query=${this.props.danceType}+dance`)
+            axios.get(`https://api.unsplash.com/photos/search?client_id=24cf3009b229ebaece09d9a5d96e5193838c23585fddea759d7a5589f4028c12&query=${this.props.danceType}+dancers`)
             .then((res)=>{
                 this.setState({bkImages: [...res.data]})
             })
@@ -39,7 +39,7 @@ class DanceClass extends Component {
         console.log(imageURL.small)
 
         return (
-            <div className='danceCard' style={{backgroundImage:`url(${imageURL.regular})`}}>
+            <div className='danceCard' style={{backgroundImage:`url(${imageURL.small})`}}>
                <h1>{this.props.name}</h1> 
                <p>{this.props.instructor}</p>
                <form action={`/dancestudio/${this.props.studioId}/danceclass/${this.props.id}`}>

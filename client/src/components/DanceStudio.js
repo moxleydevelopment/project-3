@@ -114,6 +114,7 @@ class DanceStudio extends Component {
                         instructor={dance.instructor}
                         classSize={dance.classSize}
                         id={dance._id}
+                        danceType={dance.danceType}
                     >
                     </DanceClasses>
      
