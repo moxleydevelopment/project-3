@@ -82,7 +82,7 @@ export default class DanceStudios extends Component {
                                 <label htmlFor='hoursOfOperation'>Hours of Operation:</label>
                                 <input type='text' name='hoursOfOperation' onChange={this.handleInputChange}></input>
                                 <label htmlFor='description'>Description:</label>
-                                <textarea name='description' onChange={this.handleInputChange}></textarea>
+                                <textarea rows="6" cols="50" name='description' onChange={this.handleInputChange}></textarea>
                                 <input className='btn' type='submit' value='Submit'></input>
 
                             </form>
