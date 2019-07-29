@@ -13,6 +13,8 @@ instructors that lead those classes. Within a studio users can add the informati
 ## Application Structure
 The app uses two models, one is the actual dance studio, and the other would be the classes that each studio will hold.
 Dance stuios may contain either zero dance classes or many classes.
+
+
 ![Wireframe](https://i.imgur.com/z1bzOXl.png)
 
 ## Wireframe
