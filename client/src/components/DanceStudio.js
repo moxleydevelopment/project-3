@@ -158,7 +158,7 @@ class DanceStudio extends Component {
                                 <select name="danceType" onChange={this.handleInputChangeOnClass}>
                                     <option value="African">African</option>
                                     <option value="Hip Hop">HipHop</option>
-                                    <option value="Tap ">Tap</option>
+                                    <option value="Tap">Tap</option>
                                     <option value="Freestyle">Freestyle</option>
                                     <option value="Ballet">Ballet</option>
                                     <option value="Jazz">Jazz</option>
