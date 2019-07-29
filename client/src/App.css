@@ -410,11 +410,12 @@ button {
   .studio-info-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 410px 1fr;
+    grid-template-rows: 600px 1fr;
     
   }
   .studio-info-container .top {
     grid-column: 1/ span 4;
+    min-height: 600px;
   }
 
   .studio-info-container .bottom {
