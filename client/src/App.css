@@ -417,7 +417,7 @@ button {
     grid-column: 1/ span 4;
   }
 
-  .studio-info-container bottom {
+  .studio-info-container .bottom {
     padding-top: 20px;
     grid-column: 1/ span 4;
     grid-row: 2 /span 1;
